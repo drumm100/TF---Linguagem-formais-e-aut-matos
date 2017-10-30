@@ -1,0 +1,17 @@
+M=;q0,q1,q2,q3,q4;P,Ip,Iq,M,Pf;q0;q0
+Prog
+(q0,P)=q1
+(q0,P)=q2
+(q1,Ip)=q2
+(q1,Ip)=q3
+(q2,Iq)=q1
+(q2,Iq)=q3
+(q3,M)=q4
+(q4,P)=q1
+(q4,P)=q2
+(q4,Pf)=q0
+
+
+
+
+
