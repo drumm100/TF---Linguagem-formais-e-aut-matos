@@ -1,0 +1,32 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+AFND	../programaAutomatos.py	/^AFND = AFND.split(";")$/;"	kind:variable	line:47
+AFND	../programaAutomatos.py	/^AFND = words[0]$/;"	kind:variable	line:46
+G	../programaAutomatos.py	/^G = Grafo()$/;"	kind:variable	line:57
+Grafo	../programaAutomatos.py	/^class Grafo:$/;"	kind:class	line:3
+__init__	../programaAutomatos.py	/^    def __init__(self):$/;"	kind:member	line:4
+add_aresta	../programaAutomatos.py	/^    def add_aresta(self, qa, qb, palavra):$/;"	kind:member	line:11
+add_vertice	../programaAutomatos.py	/^    def add_vertice(self, vertice):$/;"	kind:member	line:8
+afd	../programaAutomatos.py	/^afd = {}$/;"	kind:variable	line:91
+aux	../programaAutomatos.py	/^	aux = transitions[i].split("=")$/;"	kind:variable	line:66
+aux	../programaAutomatos.py	/^    aux = G.transicoes(states[i])$/;"	kind:variable	line:96
+aux2	../programaAutomatos.py	/^aux2 = ''$/;"	kind:variable	line:92
+b	../programaAutomatos.py	/^    b = ''$/;"	kind:variable	line:98
+deleta_aresta	../programaAutomatos.py	/^    def deleta_aresta(self, vertice, outro_vertice):$/;"	kind:member	line:28
+deleta_vertice	../programaAutomatos.py	/^    def deleta_vertice(self, vertice):$/;"	kind:member	line:31
+estadoF	../programaAutomatos.py	/^estadoF = AFND[4]$/;"	kind:variable	line:51
+estadoI	../programaAutomatos.py	/^estadoI = AFND[3]$/;"	kind:variable	line:50
+estados	../programaAutomatos.py	/^    def estados(self):$/;"	kind:member	line:25
+estados	../programaAutomatos.py	/^estados = AFND[1].split(',')$/;"	kind:variable	line:48
+file	../programaAutomatos.py	/^file = open("programa.txt", "r")$/;"	kind:variable	line:37
+new_state	../programaAutomatos.py	/^new_state = ''$/;"	kind:variable	line:90
+palavras	../programaAutomatos.py	/^palavras = AFND[2]$/;"	kind:variable	line:49
+programaAutomatos.py	../programaAutomatos.py	1;"	kind:file	line:1
+states	../programaAutomatos.py	/^states = list(G.estados())$/;"	kind:variable	line:89
+transicoes	../programaAutomatos.py	/^    def transicoes(self, qa):$/;"	kind:member	line:18
+transitions	../programaAutomatos.py	/^transitions = []$/;"	kind:variable	line:39
+words	../programaAutomatos.py	/^words = []$/;"	kind:variable	line:38
