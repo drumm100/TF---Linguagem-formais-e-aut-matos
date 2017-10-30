@@ -1,6 +1,6 @@
 #coding: utf-8
 
-file = open("/home/16105077/Downloads/programa.txt", "r")
+file = open("/home/16105077/Downloads/TF---Linguagem-formais-e-aut-matos/programa.txt", "r")
 words = []
 transitions = []
 #Leitura do arquivo
@@ -32,4 +32,15 @@ print "Transicoes:",transitions
 #percorrer Transicoes com regras, procruar primeiro estado
 #depois do '(', procurar parametor depois da ',', procurar estado
 #direcional depois do '='.
+
+#for w in word_features:
+
+for i in transitions:
+    for j in i:
+        if j == '(':
+            print transitions[i][j]
+        if j == ',':
+            print 'funcionou2'
+        if j == '=':
+            print 'funcionou3'
 
