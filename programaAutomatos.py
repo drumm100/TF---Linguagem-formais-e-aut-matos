@@ -94,12 +94,17 @@ aux2 = ''
 
 for i in range(0,len(states)):
     aux = G.transicoes(states[i])
+    print(aux)
     #print i, aux
     b = ''
+    a = ''
+
     for j in range(0,len(aux)):
         #print i,j
         aux2 = aux[j]
         #print aux2
+        a += aux2[0]+'/'
         b += aux2[1]
-    afd["new_q{0}".format(i)] =  b
+        print (a + b)
+    afd["new_q{0}".format(i)] = a + b
 print (afd)
