@@ -9,13 +9,14 @@ AFND	../programaAutomatos.py	/^AFND = words[0]$/;"	kind:variable	line:46
 G	../programaAutomatos.py	/^G = Grafo()$/;"	kind:variable	line:57
 Grafo	../programaAutomatos.py	/^class Grafo:$/;"	kind:class	line:3
 __init__	../programaAutomatos.py	/^    def __init__(self):$/;"	kind:member	line:4
+a	../programaAutomatos.py	/^    a = ''$/;"	kind:variable	line:100
 add_aresta	../programaAutomatos.py	/^    def add_aresta(self, qa, qb, palavra):$/;"	kind:member	line:11
 add_vertice	../programaAutomatos.py	/^    def add_vertice(self, vertice):$/;"	kind:member	line:8
 afd	../programaAutomatos.py	/^afd = {}$/;"	kind:variable	line:91
 aux	../programaAutomatos.py	/^	aux = transitions[i].split("=")$/;"	kind:variable	line:66
 aux	../programaAutomatos.py	/^    aux = G.transicoes(states[i])$/;"	kind:variable	line:96
 aux2	../programaAutomatos.py	/^aux2 = ''$/;"	kind:variable	line:92
-b	../programaAutomatos.py	/^    b = ''$/;"	kind:variable	line:98
+b	../programaAutomatos.py	/^    b = ''$/;"	kind:variable	line:99
 deleta_aresta	../programaAutomatos.py	/^    def deleta_aresta(self, vertice, outro_vertice):$/;"	kind:member	line:28
 deleta_vertice	../programaAutomatos.py	/^    def deleta_vertice(self, vertice):$/;"	kind:member	line:31
 estadoF	../programaAutomatos.py	/^estadoF = AFND[4]$/;"	kind:variable	line:51
