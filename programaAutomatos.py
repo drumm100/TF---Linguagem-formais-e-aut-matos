@@ -96,8 +96,8 @@ for i in range(0,len(states)):
     aux = G.transicoes(states[i])
     print(aux)
     #print i, aux
-    b = '->'
-    a = ''
+    b = '->' #estados
+    a = ''   #terminais
 
     for j in range(0,len(aux)):
         #print i,j
@@ -106,11 +106,14 @@ for i in range(0,len(states)):
         ##print (a, '/', aux2[0])
         if a == aux2[0]:
             a = aux2[0] + '/'
-            b += aux2[1]             
+            b += aux2[1]           
         else:
             a += aux2[0]
-            b += '/' + aux2[1]
+            b += '/' + aux2[1] 
         
         print (a + b)
-    afd["new_q{0}".format(i)] = a + b
+    afd["q{0}".format(i)] = a + b
+
+
+
 print (afd)

@@ -16,7 +16,7 @@ afd	../programaAutomatos.py	/^afd = {}$/;"	kind:variable	line:91
 aux	../programaAutomatos.py	/^	aux = transitions[i].split("=")$/;"	kind:variable	line:66
 aux	../programaAutomatos.py	/^    aux = G.transicoes(states[i])$/;"	kind:variable	line:96
 aux2	../programaAutomatos.py	/^aux2 = ''$/;"	kind:variable	line:92
-b	../programaAutomatos.py	/^    b = ''$/;"	kind:variable	line:99
+b	../programaAutomatos.py	/^    b = '->'$/;"	kind:variable	line:99
 deleta_aresta	../programaAutomatos.py	/^    def deleta_aresta(self, vertice, outro_vertice):$/;"	kind:member	line:28
 deleta_vertice	../programaAutomatos.py	/^    def deleta_vertice(self, vertice):$/;"	kind:member	line:31
 estadoF	../programaAutomatos.py	/^estadoF = AFND[4]$/;"	kind:variable	line:51
