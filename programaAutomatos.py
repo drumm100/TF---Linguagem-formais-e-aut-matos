@@ -106,13 +106,13 @@ for i in range(0,len(states)):
         ##print (a, '/', aux2[0])
         if a == aux2[0]:
             a = aux2[0] + '/'
-            b += aux2[1]           
+            b += aux2[1] + ','           
         else:
             a += aux2[0]
-            b += '/' + aux2[1] 
+            b += '/' + aux2[1] + ',' 
         
         print (a + b)
-    afd["q{0}".format(i)] = a + b
+    afd["q{0}".format(i)] = a + b[:-1]
 
 
 
@@ -120,7 +120,7 @@ print (afd)
 
 
 ### Testes ipython
-''''
+'''
 afd = {'q0': 'P/->/q1q2', 'q1': 'Ip/->/q2q3', 'q2': 'Iq/->/q1q3', 'q3': 'M->/q4', 'q4': 'P/Pf->/q1q2/q0'}
 state_A = afd['q0'][5:].split(',')
 A = afd['q0'][5:] #precisa ser string
@@ -134,6 +134,4 @@ for s in st_A:
 
 In [106]: final
 Out[106]: {'q1,q2,': 'Ip/->/q2,q3,Iq/->/q1,q3,Ip/->/q2,q3,Iq/->/q1,q3,'}
-
-
-""""
+'''
