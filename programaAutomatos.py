@@ -117,3 +117,23 @@ for i in range(0,len(states)):
 
 
 print (afd)
+
+
+### Testes ipython
+''''
+afd = {'q0': 'P/->/q1q2', 'q1': 'Ip/->/q2q3', 'q2': 'Iq/->/q1q3', 'q3': 'M->/q4', 'q4': 'P/Pf->/q1q2/q0'}
+state_A = afd['q0'][5:].split(',')
+A = afd['q0'][5:] #precisa ser string
+st_A = state_A[:-1]
+b =''
+final = {}
+for s in st_A:
+    a = afd[s] 
+    b = b + a
+    final[A] = b
+
+In [106]: final
+Out[106]: {'q1,q2,': 'Ip/->/q2,q3,Iq/->/q1,q3,Ip/->/q2,q3,Iq/->/q1,q3,'}
+
+
+""""
