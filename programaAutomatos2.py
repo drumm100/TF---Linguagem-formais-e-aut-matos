@@ -148,9 +148,10 @@ print ('---- TESTE 2 -----------------------------')
 afd2 = {}
 afd2[estadoI] = True
 n = len(afd2.keys())
-
+i = 0
 #problema ---> len(afd2.keyd()) não ta atualizando quando adiciona um novo estado em afd2
-for i in range(0, n):
+while(i < n):
+    if (i >= len(afd2.keys())): break;
     estadosAFD = list(afd2.keys())
     estadoAux = estadosAFD[i].split(",") #quebra o estado em virgulas
     for l in range(0, len(estadoAux)):
@@ -165,7 +166,11 @@ for i in range(0, n):
             if (new_estado != ""):
                 new_estado = new_estado[:-1] #retira a ultima virgula
                 afd2[new_estado] = True #adiciona o novo estado no afd2
-                n = n+1
+                n += 1
+                #add no grafo (new_estado)
+                #add aresta (estadosAFD[i]  ==palavras[j]==>  new_estado)
+    i += 1
+               
 
 
 print(afd2.keys())
