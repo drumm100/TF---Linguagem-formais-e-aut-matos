@@ -83,61 +83,6 @@ print ("")
 
 print (G.estados())
 print (G.transicoes('q1'))
-'''
-#AFD
-print ('TESTE-----------------------------')
-states = list(G.estados())
-new_state = ''
-afd = {}
-afd[estadoI] = True
-aux2 = ''
-        
-
-
-for i in range(0,len(states)):
-    aux = G.transicoes(states[i])
-    print(aux)
-    #print i, aux
-    b = '->' #estados
-    a = ''   #terminais
-
-    for j in range(0,len(aux)):
-        #print i,j
-        aux2 = aux[j]
-        #print aux2
-        ##print (a, '/', aux2[0])
-        if a == aux2[0]:
-            a = aux2[0] + '/'
-            b += aux2[1] + ','           
-        else:
-            a += aux2[0]
-            b += '/' + aux2[1] + ',' 
-        
-        print (a + b)
-    afd["q{0}".format(i)] = a + b[:-1]
-
-
-
-print (afd)
-'''
-
-### Testes ipython
-'''
-afd = {'q0': 'P/->/q1q2', 'q1': 'Ip/->/q2q3', 'q2': 'Iq/->/q1q3', 'q3': 'M->/q4', 'q4': 'P/Pf->/q1q2/q0'}
-state_A = afd['q0'][5:].split(',')
-A = afd['q0'][5:] #precisa ser string
-st_A = state_A[:-1]
-b =''
-final = {}
-for s in st_A:
-    a = afd[s] 
-    b = b + a
-    final[A] = b
-
-In [106]: final
-Out[106]: {'q1,q2,': 'Ip/->/q2,q3,Iq/->/q1,q3,Ip/->/q2,q3,Iq/->/q1,q3,'}
-'''
-
 
 
 
@@ -149,6 +94,9 @@ afd2 = {}
 afd2[estadoI] = True
 n = len(afd2.keys())
 i = 0
+
+G_AFD = Grafo()
+
 #problema ---> len(afd2.keyd()) não ta atualizando quando adiciona um novo estado em afd2
 while(i < n):
     if (i >= len(afd2.keys())): break;
@@ -168,9 +116,17 @@ while(i < n):
                 afd2[new_estado] = True #adiciona o novo estado no afd2
                 n += 1
                 #add no grafo (new_estado)
+                G_AFD.add_vertice(estadosAFD[i])
                 #add aresta (estadosAFD[i]  ==palavras[j]==>  new_estado)
+                G_AFD.add_aresta(estadosAFD[i], new_estado, palavras[j])
     i += 1
                
+print('NOVO GRAFO')
+print(G_AFD.estados())
+print ('q0:', G_AFD.transicoes('q0'))
+print ('q1q2:',G_AFD.transicoes('q1,q2'))
+print ('q2q3:',G_AFD.transicoes('q2,q3'))
+print ('q1q3:',G_AFD.transicoes('q1,q3'))
+print ('q4:',G_AFD.transicoes('q4'))
 
-
-print(afd2.keys())
+#print(afd2.keys())
