@@ -124,8 +124,8 @@ while(i < n):
                 for e in estadoF:
                     aux233 = estadosAFD[i].split(",")
                     for m in range(0, len(aux233)):
-                        print e, '////', aux233
-                        if e in aux233[m]:
+                        print (e, '////', aux233)
+                        if (e in aux233[m]) and (estadosAFD[i] not in novos_estados_finais):
                             novos_estados_finais.append(estadosAFD[i])
 
                 #add aresta (estadosAFD[i]  ==palavras[j]==>  new_estado)
