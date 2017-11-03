@@ -34,7 +34,7 @@ class Grafo:
         del self.lista_vizinhos[vertice]
         del self.lista_vertices[vertice]
 
-file = open("programa.txt", "r")
+file = open("programa2.txt", "r")
 words = []
 transitions = []
 #Leitura do arquivo
@@ -48,7 +48,7 @@ AFND = AFND.split(";")
 estados = AFND[1].split(',')
 palavras = AFND[2].split(',')
 estadoI = AFND[3]
-estadoF = AFND[4]
+estadoF = AFND[4].split(',')
 
 for i in range (2, len(words)):
     transitions.append(words [i])
@@ -82,7 +82,7 @@ print ("")
 print ("")
 
 print (G.estados())
-print (G.transicoes('q1'))
+print ('transicoes',G.transicoes('p'))
 
 
 
@@ -96,6 +96,7 @@ n = len(afd2.keys())
 i = 0
 
 G_AFD = Grafo()
+novos_estados_finais = []
 
 #problema ---> len(afd2.keyd()) não ta atualizando quando adiciona um novo estado em afd2
 while(i < n):
@@ -117,11 +118,22 @@ while(i < n):
                 n += 1
                 #add no grafo (new_estado)
                 G_AFD.add_vertice(estadosAFD[i])
+
+
+                #MERDA DOS ESTADOS FINAIS 
+                for e in estadoF:
+                    aux233 = estadosAFD[i].split(",")
+                    for m in range(0, len(aux233)):
+                        print e, '////', aux233
+                        if e in aux233[m]:
+                            novos_estados_finais.append(estadosAFD[i])
+
                 #add aresta (estadosAFD[i]  ==palavras[j]==>  new_estado)
                 G_AFD.add_aresta(estadosAFD[i], new_estado, palavras[j])
     i += 1
                
 print('NOVO GRAFO')
+print (novos_estados_finais)
 print(G_AFD.estados())
 print ('q0:', G_AFD.transicoes('q0'))
 print ('q1q2:',G_AFD.transicoes('q1,q2'))
@@ -130,3 +142,29 @@ print ('q1q3:',G_AFD.transicoes('q1,q3'))
 print ('q4:',G_AFD.transicoes('q4'))
 
 #print(afd2.keys())
+
+
+
+a = 'PpqmF'
+estadoAtual = estadoI
+resp = True
+
+for i in a:
+    proximo_estado = False
+
+    t = G_AFD.transicoes(estadoAtual)
+    for j in G_AFD.transicoes(estadoAtual):
+        print(i,'//',j[0])
+        if i == j[0]:
+            proximo_estado = True
+            estadoAtual = j[1]
+    if proximo_estado == False:
+        resp = False
+
+for e in novos_estados_finais:
+    if e != estadoAtual:
+        resp = False 
+    
+
+        
+print(resp)
