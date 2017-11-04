@@ -90,56 +90,60 @@ print ('transicoes',G.transicoes('p'))
 print()
 print()
 print ('---- TESTE 2 -----------------------------')
+
+
 afd2 = {}
 afd2[estadoI] = True
 n = len(afd2.keys())
 i = 0
 
-G_AFD = Grafo()
-novos_estados_finais = []
+G_AFD = Grafo()             #instancia um novo grafo AFD 
+G_AFD.add_vertice(estadoI)  #add o estado inicial no novo grafo AFD
+novos_estados_finais = []   #lista de estados finais do AFD
 
-#problema ---> len(afd2.keyd()) não ta atualizando quando adiciona um novo estado em afd2
-while(i < n):
+
+while(i < n and n < 30):
     if (i >= len(afd2.keys())): break;
     estadosAFD = list(afd2.keys())
     estadoAux = estadosAFD[i].split(",") #quebra o estado em virgulas
-    for l in range(0, len(estadoAux)):
-        transicoes = G.transicoes(estadoAux[l])
-        print("estados ", estadosAFD)
-        print("transicoes ", transicoes)
-        for j in range(0, len(palavras)):
-            new_estado = ""
+    for j in range(0, len(palavras)):
+        new_estado = ""
+        for l in range(0, len(estadoAux)):
+            transicoes = G.transicoes(estadoAux[l])
             for k in range(0, len(transicoes)):
-                if (palavras[j] == transicoes[k][0]):
+                if (palavras[j] == transicoes[k][0]) and (transicoes[k][1] not in new_estado):
                     new_estado += transicoes[k][1] + ","
-            if (new_estado != ""):
-                new_estado = new_estado[:-1] #retira a ultima virgula
-                afd2[new_estado] = True #adiciona o novo estado no afd2
-                n += 1
-                #add no grafo (new_estado)
-                G_AFD.add_vertice(estadosAFD[i])
+        
+        if (new_estado != ""):
+            new_estado = new_estado[:-1] #retira a ultima virgula
+            afd2[new_estado] = True #adiciona o novo estado no afd2
+            n += 1
+            #add no grafo (new_estado)
+            G_AFD.add_vertice(new_estado)
 
 
-                #MERDA DOS ESTADOS FINAIS 
-                for e in estadoF:
-                    aux233 = estadosAFD[i].split(",")
-                    for m in range(0, len(aux233)):
-                        print (e, '////', aux233)
-                        if (e in aux233[m]) and (estadosAFD[i] not in novos_estados_finais):
-                            novos_estados_finais.append(estadosAFD[i])
+            #MERDA DOS ESTADOS FINAIS 
+            for e in estadoF:
+                aux233 = new_estado.split(",")
+                for m in range(0, len(aux233)):
+                    #print (e, '////', aux233)
+                    if (e in aux233[m]) and (new_estado not in novos_estados_finais):
+                        novos_estados_finais.append(new_estado)
 
-                #add aresta (estadosAFD[i]  ==palavras[j]==>  new_estado)
-                G_AFD.add_aresta(estadosAFD[i], new_estado, palavras[j])
+            #add aresta (estadosAFD[i]  ==palavras[j]==>  new_estado)
+            G_AFD.add_aresta(estadosAFD[i], new_estado, palavras[j])
+            print("estado criado ",estadosAFD[i], palavras[j], new_estado)
+            print("transicoes ", transicoes)
+            print("-------------------------")
     i += 1
                
 print('NOVO GRAFO')
-print (novos_estados_finais)
+
+print(novos_estados_finais)
 print(G_AFD.estados())
-print ('q0:', G_AFD.transicoes('q0'))
-print ('q1q2:',G_AFD.transicoes('q1,q2'))
-print ('q2q3:',G_AFD.transicoes('q2,q3'))
-print ('q1q3:',G_AFD.transicoes('q1,q3'))
-print ('q4:',G_AFD.transicoes('q4'))
+print("Prog")
+for m in G_AFD.estados():
+    print (m, ": ", G_AFD.transicoes(m))
 
 #print(afd2.keys())
 
